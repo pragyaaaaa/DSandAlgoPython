@@ -51,3 +51,21 @@ class SinglyLinkedList(object):
             fast_ptr = fast_ptr.next
             slow_ptr = slow_ptr.next
         return slow_ptr
+
+    # merge sorted LLs
+    def merge_sorted(self, list_1, list_2):
+        temp = Node(0)
+        pointer = temp
+        while list_1 != None and list_2 != None:
+            if list_1.data < list_2.data:
+                pointer = list_1
+                list_1 = list_1.next
+            else:
+                pointer = list_2
+                list_2 = list_2.next
+            pointer = pointer.next
+        if list_1 == None:
+            pointer = list_2
+        else:
+            pointer = list_1
+        return temp.next
