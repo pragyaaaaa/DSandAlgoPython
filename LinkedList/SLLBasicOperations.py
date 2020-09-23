@@ -132,3 +132,7 @@ class SinglyLinkedList(object):
                 else:
                     previous_node = current_node
                     current_node = current_node.next
+
+    # reclaim memory in Python
+    def clear(self):
+        self.head = None
