@@ -57,3 +57,78 @@ class SinglyLinkedList(object):
                     new_node.next = current.next
                     current.next = new_node
                     self.length += 1
+
+    # delete from begin
+    def delete_from_begin(self):
+        if self.length == 0:
+            print("The list is empty.")
+        else:
+            self.head = self.head.next
+            self.length += 1
+
+    # deleting last node
+    def delete_from_end(self):
+        if self.length == 0:
+            print("The list is empty")
+        else:
+            current_node = self.head
+            previous_node = self.head
+            while current_node != None:
+                previous_node = current_node
+                current_node = current_node.next
+            previous_node.next = None
+            self.length -= 1
+
+    # deleting by node
+    def delete_with_node(self, node):
+        if self.length == 0:
+            print("The list is empty.")
+        else:
+            current_node = self.head
+            previous_node = None
+            found = False
+            while not found:
+                if current_node == node:
+                    found = True
+                elif current_node is None:
+                    raise ValueError("Node not in LL")
+                else:
+                    previous_node = current_node
+                    current_node = current_node.next
+            if previous_node is None:
+                self.head = current_node.next
+            else:
+                previous_node = current_node.next
+            self.length -= 1
+
+    # deleting with data
+    def delete_by_data(self, val):
+        current_node = self.head
+        previous_node = self.head
+        while current_node.next != None or current_node.data != val:
+            if current_node.data == val:
+                previous_node.next = current_node.next
+                self.length -= 1
+                return
+            else:
+                previous_node = current_node
+                current_node = current_node.next
+            print("Value is not in LL.")
+
+    # deleting with position
+    def delete_by_pos(self, pos):
+        count = 0
+        current_node = self.head
+        previous_node = self.head
+        if pos > self.length or pos < 0:
+            print("Invalid position")
+        else:
+            while current_node.next != None or count < pos:
+                count = count + 1
+                if count == pos:
+                    previous_node.next = current_node.next
+                    self.length -= 1
+                    return
+                else:
+                    previous_node = current_node
+                    current_node = current_node.next
