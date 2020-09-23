@@ -20,16 +20,4 @@ class Node:
         return self.next != None
 
 
-class SinglyLinkedList(object):
 
-    def __init__(self, node=None):
-        self.length = 0
-        self.head = node
-
-    def length(self):
-        current = self.head
-        count = 0
-        while current != None:
-            count = count + 1
-            current = current.next
-        return count
