@@ -27,3 +27,27 @@ class SinglyLinkedList(object):
         else:
             node = None
             self.reverse_list_rec(right)
+
+    # reverse in pairs
+    def rev_in_pairs(self):
+        temp = self.head
+        while None != temp and None != temp.next:
+            self.swap_data(temp, temp.next)
+            temp = temp.next.next
+
+    def swap_data(self, a, b):
+        tmp = a.data
+        a.set_data(b.data)
+        b.set_data(tmp)
+
+    # middle of linked list
+    def mid_of_sll(self):
+        fast_ptr = self.head
+        slow_ptr = self.head
+        while fast_ptr != None:
+            fast_ptr = fast_ptr.next
+            if fast_ptr == None:
+                return slow_ptr
+            fast_ptr = fast_ptr.next
+            slow_ptr = slow_ptr.next
+        return slow_ptr
