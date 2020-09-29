@@ -1,4 +1,4 @@
-#OOP version of tree implementation
+# OOP version of tree implementation
 class BinaryTree(object):
     def __init__(self, root):
         self.value = root
