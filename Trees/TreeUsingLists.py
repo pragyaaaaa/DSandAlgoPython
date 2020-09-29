@@ -1,37 +1,45 @@
-def BinaryTree(r):
-    return [r, [], []]  # return list with root and empty left and right subtree
+# not recommended way of tree implementation. Just to understand how trees can work with list as well.
+def binary_tree(root):
+    return [root, [], []]  # return list with root and empty left and right subtree
 
 
-def insertLeft(root, newBranch):
+def insert_left(root, new_branch):
     t = root.pop(1)
     if len(t) > 1:
-        root.insert(1, [newBranch, t, []])
+        root.insert(1, [new_branch, t, []])
     else:
-        root.insert(1, newBranch, [], [])
+        root.insert(1, [new_branch, [], []])
     return root
 
 
-def insertRight(root, newBranch):
+def insert_right(root, new_branch):
     t = root.pop(2)
     if len(t) > 1:
-        root.insert(2, [newBranch, [], t])
+        root.insert(2, [new_branch, [], t])
     else:
-        root.insert(2, newBranch, [], [])
+        root.insert(2, [new_branch, [], []])
     return root
 
 
-def getRootVal(root):
+def get_root_value(root):
     return root[0]
 
 
-def setRootVal(root, newVal):
-    root[0] = newVal
+def set_root_value(root, new_value):
+    root[0] = new_value
 
 
-def getLeftChild(root):
+def get_left_child(root):
     return root[1]
 
 
-def getRightChild(root):
+def get_right_child(root):
     return root[2]
 
+
+r = binary_tree(3)
+print(insert_left(r, 5))
+print(insert_right(r, 6))
+print(f"Root value:\t{get_root_value(r)}")
+print(f"Left child:\t{get_left_child(r)}")
+print(f"Right child:\t{get_right_child(r)}")
