@@ -12,5 +12,10 @@ class BinaryTree(object):
             temp.left_child = self.left_child
             self.left_child = temp
 
-    def insert_right(self, new_node):
-        pass
+    def insert_right_child(self, new_node):
+        if self.right_child == None:
+            self.right_child = BinaryTree(new_node)
+        else:
+            temp = BinaryTree(new_node)
+            temp.right_child = self.right_child
+            self.right_child = temp
