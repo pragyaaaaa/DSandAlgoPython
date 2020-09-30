@@ -32,5 +32,5 @@ g.add_edge(2, 0)
 g.add_edge(2, 3)
 g.add_edge(3, 3)
 
-print ("Following is Depth First Traversal: ")
+print("Following is Depth First Traversal: ")
 g.dfs()
